@@ -5,14 +5,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Locale;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Program {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Set<String> listUser = new HashSet<>();
+		Scanner sc = new Scanner(System.in);
 		
-		String path = "C:\\pastaarquivo\\log.txt";
+		System.out.print("Enter file full: ");
+		String path = sc.nextLine();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			
@@ -26,13 +29,12 @@ public class Program {
 				line = br.readLine();
 			}
 			
-			System.out.println(listUser.size());
+			System.out.println("Total users: " + listUser.size());
 			
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			System.out.println("ERROR >>> " + e.getMessage());
 		}
-		
+		sc.close();
 	}
-	
-	
 }
