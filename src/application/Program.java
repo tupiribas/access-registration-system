@@ -21,7 +21,7 @@ public class Program {
 		String path = sc.nextLine();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-			Set<User> listUser = new HashSet<>();
+			Set<User> set = new HashSet<>();
 
 			String line = br.readLine();
 
@@ -31,11 +31,11 @@ public class Program {
 				String name = i[0];
 				Date date = sdf.parse(i[1]);
 
-				listUser.add(new User(name, date));
+				set.add(new User(name, date));
 				line = br.readLine();
 			}
 
-			System.out.println("Total users: " + listUser.size());
+			System.out.println("Total users: " + set.size());
 
 		} catch (IOException e) {
 			System.out.println("ERROR >>> " + e.getMessage());
